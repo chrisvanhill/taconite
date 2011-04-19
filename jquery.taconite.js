@@ -322,9 +322,10 @@ function handleCDATA(s, cdataWrap) {
     var $el = $(el);
     $el[cdataWrap == 'script' ? 'text' : 'html'](s);
     
+    var $ch = $el.children();
     // remove wrapper node if possible
-    if (el.childNodes.length == 1)
-      return el.childNodes[0];
+    if ($ch.size() == 1)
+      return $ch[0];
     return el;
 }
 
