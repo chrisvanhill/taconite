@@ -319,12 +319,12 @@ function createNode(node, cdataWrap) {
 
 function handleCDATA(s, cdataWrap) {
     var el = document.createElement(cdataWrap);
-    var $el = $(el), $ch = $el.children();
+    var $el = $(el);
     $el[cdataWrap == 'script' ? 'text' : 'html'](s);
     
     // remove wrapper node if possible
-    if ($ch.size() == 1)
-        return $ch[0];
+    if (el.childNodes.length == 1)
+      return el.childNodes[0];
     return el;
 }
 
